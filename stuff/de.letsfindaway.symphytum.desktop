@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Symphytum
+GenericName=Symphytum
+Comment=Simple generiy desktop database
+Exec=symphytum
+Icon=symphytum
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Office;Database

@@ -95,7 +95,8 @@ void DateFormWidget::clearData()
     m_dateTimeEdit->setDate(QDate::fromString("01/01/0100", "dd/MM/yyyy"));
 
     //clear popup predefined date, if any
-    m_dateTimeEdit->calendarWidget()->setSelectedDate(QDate());
+    if (m_dateTimeEdit->calendarPopup())
+        m_dateTimeEdit->calendarWidget()->setSelectedDate(QDate());
 }
 
 void DateFormWidget::setData(const QVariant &data)
@@ -105,7 +106,7 @@ void DateFormWidget::setData(const QVariant &data)
         *m_lastValidDateTime = data.toDateTime();
 
         //if date not defined (01/01/0100) set calender popup to current date for better UX
-        if (data.toDate() == QDate::fromString("01/01/0100", "dd/MM/yyyy")) {
+        if (data.toDate() == QDate::fromString("01/01/0100", "dd/MM/yyyy") && m_dateTimeEdit->calendarPopup()) {
             m_dateTimeEdit->calendarWidget()->setSelectedDate(QDate::currentDate());
         }
     } else {
@@ -140,9 +141,13 @@ void DateFormWidget::loadMetadataDisplayProperties(const QString &metadata)
         dateFormat = "yyyy-MM-dd hh:mm";
     else if (v == "6")
         dateFormat = "yyyy-MM-dd";
+    else if (v == "7")
+        dateFormat = "hh:mm";
 
     //setup date time edit
-    m_dateTimeEdit->setCalendarPopup(true);
+    if (v != "7")
+        m_dateTimeEdit->setCalendarPopup(true);
+
     m_dateTimeEdit->setDisplayFormat(dateFormat);
 }
 

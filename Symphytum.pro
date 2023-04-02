@@ -229,3 +229,15 @@ TRANSLATIONS = stuff/translations/symphytum_de.ts \
 
 ICON = resources/images/icons/symphytum.icns # for mac
 RC_FILE = resources/symphytum.rc # for windows
+
+BINARY.files = symphytum
+DESKTOP.files = stuff/de.letsfindaway.symphytum.desktop
+ICON.files = stuff/logo/symphytum.png
+
+BINARY.path = $$INSTALL_ROOT/usr/bin/
+DESKTOP.path = $$INSTALL_ROOT/usr/share/applications/
+ICON.path = $$INSTALL_ROOT/usr/share/icons/hicolor/256x256/apps/
+
+INSTALLS = BINARY \
+   DESKTOP \
+   ICON

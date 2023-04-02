@@ -76,13 +76,17 @@ void StandardModel::addRecord()
             if ((v == "2") || (v == "4") || (v == "6")) { //formats without time part
                 nowDateTime.setTime(QTime(0, 0));
             }
+            if (v == "7") { //format without date part for duration
+                nowDateTime.setDate(QDate(1970, 1, 1));
+                nowDateTime.setTime(QTime(0, 0));
+            }
 
             //set current date & time if the edit property is set
             MetadataPropertiesParser eParser(m_metadataEngine->getFieldProperties(
                                                  MetadataEngine::EditProperty,
                                                  i));
-            if (!eParser.getValue("initWithEmptyDateTime").toInt()) {
-                //init new record with current date/time
+            if (!eParser.getValue("initWithEmptyDateTime").toInt() || v == "7") {
+                //init new record with current date/time, always 00:00 for durations
                 //if appropriate edit trigger is set
                 newRecord.setValue(i, nowDateTime);
             }

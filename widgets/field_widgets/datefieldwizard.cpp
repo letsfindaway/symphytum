@@ -41,6 +41,7 @@ DateFieldWizard::DateFieldWizard(const QString &fieldName,
     ui->dateFormatBox->addItem(nowDateTime.toString("ddd MMM d yyyy"), 4);
     ui->dateFormatBox->addItem(nowDateTime.toString("yyyy-MM-dd hh:mm"), 5);
     ui->dateFormatBox->addItem(nowDateTime.toString("yyyy-MM-dd"), 6);
+    ui->dateFormatBox->addItem(nowDateTime.toString("hh:mm"), 7);
 
     connect(ui->backButton, SIGNAL(clicked()),
             this, SIGNAL(backSignal()));

@@ -117,6 +117,8 @@ void ModDateFormWidget::loadMetadataDisplayProperties(const QString &metadata)
         m_dateFormat = "yyyy-MM-dd hh:mm";
     else if (v == "6")
         m_dateFormat = "yyyy-MM-dd";
+    else if (v == "7")
+        m_dateFormat = "hh:mm";
 }
 
 

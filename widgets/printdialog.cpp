@@ -359,6 +359,8 @@ QString PrintDialog::dateTypeItemHtml(const QVariant &data, int fieldId)
             dateFormat = "yyyy-MM-dd hh:mm";
         else if (v == "6")
             dateFormat = "yyyy-MM-dd";
+        else if (v == "7")
+            dateFormat = "hh:mm";
     }
 
     return data.toDateTime().toString(dateFormat);

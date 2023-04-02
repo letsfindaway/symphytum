@@ -46,7 +46,7 @@ public:
 
     /**
      * Supported display properties are:
-     * - dateFormat: 1, 2, 3, 4, 5, 6
+     * - dateFormat: 1, 2, 3, 4, 5, 6, 7
      */
     void loadMetadataDisplayProperties(const QString &metadata);
 

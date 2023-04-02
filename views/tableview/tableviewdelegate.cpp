@@ -238,6 +238,8 @@ QWidget* TableViewDelegate::createEditor(QWidget *parent, const QStyleOptionView
                 dateFormat = "yyyy-MM-dd hh:mm";
             else if (v == "6")
                 dateFormat = "yyyy-MM-dd";
+            else if (v == "7")
+                dateFormat = "hh:mm";
         }
 
         //setup date time edit
@@ -662,6 +664,8 @@ void TableViewDelegate::paintCreateDateType(QPainter *painter,
             dateFormat = "yyyy-MM-dd hh:mm";
         else if (v == "6")
             dateFormat = "yyyy-MM-dd";
+        else if (v == "7")
+            dateFormat = "hh:mm";
     }
 
     //date as string
